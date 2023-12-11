@@ -59,7 +59,7 @@ public class ThongKeDialog extends javax.swing.JDialog {
             for (String mh : list) {
                 model.addElement(mh);
             }
-            cboMatHang.setSelectedIndex(0);
+//            cboMatHang.setSelectedIndex(0);
         } catch (Exception e) {
             System.out.println("cboMatHangTonKho: " + e.toString());
             MsgBox.alter(this, "Lỗi truy vấn");
@@ -76,7 +76,7 @@ public class ThongKeDialog extends javax.swing.JDialog {
             for (String mh : list) {
                 model.addElement(mh);
             }
-            cboMaMH.setSelectedIndex(0);
+//            cboMaMH.setSelectedIndex(0);
         } catch (Exception e) {
             System.out.println("cboDoanhThuTong: " + e.toString());
             MsgBox.alter(this, "Lỗi truy vấn");
@@ -127,7 +127,8 @@ public class ThongKeDialog extends javax.swing.JDialog {
                 model.addRow(objects);
             }
         } catch (Exception e) {
-            MsgBox.alter(this, "Lỗi truy vấn dữ liệu");
+            System.out.println("tblTonKho: " + e.toString());
+//            MsgBox.alter(this, "Lỗi truy vấn dữ liệu");
         }
     }
 
@@ -143,7 +144,7 @@ public class ThongKeDialog extends javax.swing.JDialog {
             }
         } catch (Exception e) {
             System.out.println("tblDoanhThu: " + e.toString());
-            MsgBox.alter(this, "Lỗi truy vấn dữ liệu");
+//            MsgBox.alter(this, "Lỗi truy vấn dữ liệu");
         }
     }
 

@@ -6,6 +6,7 @@ com\qlbh\ui\Login$1.class
 com\qlbh\ui\HoaDonDialog$5.class
 com\qlbh\ui\KhachHangDialog$1.class
 com\qlbh\ui\DangKiDialog$2.class
+com\qlbh\ui\SanPhamDialog$16$1.class
 com\qlbh\ui\Login$4.class
 com\qlbh\ui\HoaDonDialog$10.class
 com\qlbh\ui\KhachHangDialog$4.class
@@ -41,6 +42,7 @@ com\qlbh\ui\DoiMatKhauDialog.class
 com\qlbh\entity\HoaDon.class
 com\qlbh\ui\MainFrame$1.class
 com\qlbh\ui\MainFrame$8.class
+com\qlbh\ui\SanPhamDialog$16.class
 com\qlbh\ui\SanPhamDialog.class
 com\qlbh\ui\Login$4$1.class
 com\qlbh\dao\TaiKhoanDao.class
@@ -72,7 +74,6 @@ com\qlbh\ui\SanPhamDialog$5.class
 com\qlbh\ui\MainFrame$5.class
 com\qlbh\ui\NhanVienDialog$4.class
 com\qlbh\ui\SanPhamDialog$9.class
-com\qlbh\ui\SanPhamDialog$15$1.class
 com\qlbh\entity\MatHang.class
 com\qlbh\ui\DoiMatKhauDialog$1.class
 com\qlbh\ui\KhachHangDialog$3.class

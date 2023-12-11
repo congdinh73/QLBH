@@ -61,7 +61,7 @@ public class HoaDonDialog extends javax.swing.JDialog {
         for (String mh : list) {
             model.addElement(mh);
         }
-        cboMatHang.setSelectedIndex(0);
+//        cboMatHang.setSelectedIndex(0);
     }
 
     void fillTableSanPham() {

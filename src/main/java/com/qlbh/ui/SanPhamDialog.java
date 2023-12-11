@@ -192,6 +192,7 @@ public class SanPhamDialog extends javax.swing.JDialog {
             mhDao.delete(maMH);
             this.fillTableMatHang();
             this.fillTableDSMatHang();
+            this.fillTableSanPham();
             MsgBox.alter(this, "Xoá thành công");
         } catch (Exception e) {
             System.out.println("Xoa: " + e.toString());
@@ -296,6 +297,12 @@ public class SanPhamDialog extends javax.swing.JDialog {
 
         }
     }
+    
+    void findSanPham() {
+         this.fillTableSanPham();
+        this.clearFormSP();
+        this.row = - 1;
+    }
 
     public void selectTab(int index) {
         tab.setSelectedIndex(index);
@@ -315,7 +322,7 @@ public class SanPhamDialog extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSanPham = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btnTimSanPham = new javax.swing.JButton();
         txtTimKiem = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -385,8 +392,13 @@ public class SanPhamDialog extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tblSanPham);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/icon/find.png"))); // NOI18N
-        jButton1.setText("Tìm kiếm");
+        btnTimSanPham.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/qlbh/icon/find.png"))); // NOI18N
+        btnTimSanPham.setText("Tìm kiếm");
+        btnTimSanPham.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTimSanPhamActionPerformed(evt);
+            }
+        });
 
         jLabel14.setText("Nhập để tìm kiếm");
 
@@ -407,7 +419,7 @@ public class SanPhamDialog extends javax.swing.JDialog {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(txtTimKiem)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                        .addComponent(jButton1)))
+                        .addComponent(btnTimSanPham)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -419,7 +431,7 @@ public class SanPhamDialog extends javax.swing.JDialog {
                         .addComponent(jLabel14)
                         .addGap(36, 36, 36))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton1)
+                        .addComponent(btnTimSanPham)
                         .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -945,6 +957,11 @@ public class SanPhamDialog extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_tblSanPhamMousePressed
 
+    private void btnTimSanPhamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimSanPhamActionPerformed
+        // TODO add your handling code here:
+        findSanPham();
+    }//GEN-LAST:event_btnTimSanPhamActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -995,9 +1012,9 @@ public class SanPhamDialog extends javax.swing.JDialog {
     private javax.swing.JButton btnSuaSP;
     private javax.swing.JButton btnThemMH;
     private javax.swing.JButton btnThemSP;
+    private javax.swing.JButton btnTimSanPham;
     private javax.swing.JButton btnXoaMH;
     private javax.swing.JButton btnXoaSP;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
