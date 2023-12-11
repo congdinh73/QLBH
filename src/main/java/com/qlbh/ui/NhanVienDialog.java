@@ -22,6 +22,7 @@ public class NhanVienDialog extends javax.swing.JDialog {
 
     NhanVienDao dao = new NhanVienDao();
     TaiKhoanDao tkDao = new TaiKhoanDao();
+    NhanVien nv = new NhanVien();
     int row = 0;
 
     /**
@@ -117,7 +118,11 @@ public class NhanVienDialog extends javax.swing.JDialog {
             this.fillTable();
             MsgBox.alter(this, "Thêm mới thành công");
         } catch (Exception e) {
-            MsgBox.alter(this, "Thêm mới thất bại");
+            if (txtMaNV.getText().equals(nv.getMaNV())) {
+                 MsgBox.alter(this, "Đã tồn tại nhân viên");
+            } else {
+                 MsgBox.alter(this, "Thêm mới thất bại");
+            }
         }
     }
 

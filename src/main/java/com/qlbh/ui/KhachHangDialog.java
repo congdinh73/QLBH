@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 public class KhachHangDialog extends javax.swing.JDialog {
 
     KhachHangDao dao = new KhachHangDao();
+    KhachHang kh = new KhachHang();
     int row = 0;
 
     /**
@@ -78,7 +79,11 @@ public class KhachHangDialog extends javax.swing.JDialog {
             this.fillTable();
             MsgBox.alter(this, "Thêm mới thành công");
         } catch (Exception e) {
-            MsgBox.alter(this, "Thêm mới thất bại");
+            if (txtMaKH.getText().equals(kh.getMaKH())) {
+                 MsgBox.alter(this, "Đã tồn tại khách hàng");
+            } else {
+                 MsgBox.alter(this, "Thêm mới thất bại");
+            }
         }
     }
 
@@ -454,6 +459,7 @@ public class KhachHangDialog extends javax.swing.JDialog {
         // TODO add your handling code here:
         if (validateForm()) {
             them();
+            
         }
     }//GEN-LAST:event_btnThemActionPerformed
 
@@ -467,6 +473,7 @@ public class KhachHangDialog extends javax.swing.JDialog {
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
         xoa();
+        clearForm();
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed

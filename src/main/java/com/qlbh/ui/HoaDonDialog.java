@@ -32,6 +32,7 @@ public class HoaDonDialog extends javax.swing.JDialog {
     HoaDonDao dao = new HoaDonDao();
     SanPhamDao spDao = new SanPhamDao();
     MatHangDao mhDao = new MatHangDao();
+    HoaDon hd = new HoaDon();
     int row = 0;
 
     /**
@@ -158,7 +159,11 @@ public class HoaDonDialog extends javax.swing.JDialog {
             this.fillTable();
             MsgBox.alter(this, "Thêm mới thành công");
         } catch (Exception e) {
-            MsgBox.alter(this, "Thêm mới thất bại");
+            if (txtMaHD.getText().equals(hd.getMaHD())) {
+                MsgBox.alter(this, "Đã tồn tại hoá đơn");
+            } else {
+                MsgBox.alter(this, "Thêm mới thất bại");
+            }
         }
     }
 
@@ -652,6 +657,7 @@ public class HoaDonDialog extends javax.swing.JDialog {
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
         xoa();
+        clearForm();
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed

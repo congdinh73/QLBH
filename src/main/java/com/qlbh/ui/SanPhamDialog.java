@@ -25,6 +25,8 @@ public class SanPhamDialog extends javax.swing.JDialog {
     JFileChooser fileChooser = new JFileChooser();
     MatHangDao mhDao = new MatHangDao();
     SanPhamDao spDao = new SanPhamDao();
+    SanPham sp = new SanPham();
+    MatHang mh = new MatHang();
     int row = 0;
 
     /**
@@ -151,15 +153,20 @@ public class SanPhamDialog extends javax.swing.JDialog {
     }
 
     void themMH() {
-        MatHang nv = getFormMH();
+        MatHang mh = getFormMH();
         try {
-            mhDao.insert(nv);
+            mhDao.insert(mh);
             this.fillTableMatHang();
             this.fillTableDSMatHang();
             MsgBox.alter(this, "Thêm mới thành công");
         } catch (Exception e) {
             System.out.println("them:" + e.toString());
-            MsgBox.alter(this, "Thêm mới thất bại");
+            if (txtMaMatHang.getText().equals(mh.getMaSP())) {
+                 MsgBox.alter(this, "Đã tồn tại sản mặt hàng");
+            } else {
+                 MsgBox.alter(this, "Thêm mới thất bại");
+            }
+           
         }
     }
 
@@ -171,7 +178,11 @@ public class SanPhamDialog extends javax.swing.JDialog {
             MsgBox.alter(this, "Thêm mới thành công");
         } catch (Exception e) {
             System.out.println("themSP:" + e.toString());
-            MsgBox.alter(this, "Thêm mới thất bại");
+            if (txtMaSP.getText().equals(sp.getMaSP())) {
+                MsgBox.alter(this, "Đã tồn tại sản phẩm");
+            } else {
+                MsgBox.alter(this, "Thêm mới thất bại");
+            }          
         }
     }
 
@@ -864,6 +875,7 @@ public class SanPhamDialog extends javax.swing.JDialog {
     private void btnThemMHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemMHActionPerformed
         // TODO add your handling code here:
         themMH();
+        clearFormMH();
     }//GEN-LAST:event_btnThemMHActionPerformed
 
     private void btnSuaMHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaMHActionPerformed
@@ -875,6 +887,7 @@ public class SanPhamDialog extends javax.swing.JDialog {
     private void btnXoaMHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaMHActionPerformed
         // TODO add your handling code here:
         xoaMH();
+        clearFormMH();
     }//GEN-LAST:event_btnXoaMHActionPerformed
 
     private void btnMoiMHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiMHActionPerformed
@@ -893,6 +906,7 @@ public class SanPhamDialog extends javax.swing.JDialog {
     private void btnThemSPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemSPActionPerformed
         // TODO add your handling code here:
         themSP();
+        clearFormSP();
     }//GEN-LAST:event_btnThemSPActionPerformed
 
     private void btnSuaSPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaSPActionPerformed
